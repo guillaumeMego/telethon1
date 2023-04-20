@@ -6,38 +6,41 @@ ob_start(); ?>
 
 <div class="container h-100">
     <div class="row col-md-10 h-100 mx-auto ">
-        <p class="col-md-10 fst-italic fw-bold mb-5 pb-5">Modifier un partenaire</p>
+        <p class="col-md-10 fst-italic fw-bold">Modifier un partenaire</p>
 
         
-        <form action="index.php?controller=partners&action=create" method="post">
+        <form action="index.php?controller=partners&action=create" method="post" class="form-control border-0">
            
                 <div class="lb_inp 1">
-                    <label for="responsible_name"> Nom </label><br>
-                    <input type="text" name="responsible_name" id="responsible_name" class="rounded w-100" value="<?=htmlspecialchars($partners['responsible_name'] )?>">
+                    <label for="responsible_name" class="form-label"> Nom </label><br>
+                    <input type="text" name="responsible_name" id="responsible_name" class="form-control" value="<?=$partners['responsible_name'] ?>">
                 </div><br>
                 <div class="lb_inp 2">
-                    <label for="responsible_first_name"> Prénom </label><br>
-                    <input type="text" name="responsible_first_name" id="responsible_first_name" class="rounded w-100" value="<?=htmlspecialchars($partners['responsible_first_name'] )?>">
+                    <label for="responsible_first_name" class="form-label"> Prénom </label><br>
+                    <input type="text" name="responsible_first_name" id="responsible_first_name" class="form-control" value="<?=$partners['responsible_first_name'] ?>">
                 </div><br>
                 <div class="lb_inp 3">
-                    <label for="mail"> Mail </label><br>
-                    <input type="email" name="mail" id="mail" class="rounded w-100" value="<?=htmlspecialchars($partners['mail'] )?>">
+                    <label for="mail" class="form-label"> Mail </label><br>
+                    <input type="email" name="mail" id="mail" class="form-control" value="<?=$partners['mail'] ?>">
                 </div><br>
                 <div class="lb_inp 4">
-                    <label for="phone"> Téléphonne </label><br>
-                    <input type="text" name="phone" id="phone" class="rounded w-100" value="<?=htmlspecialchars($partners['phone'] )?>">
+                    <label for="phone" class="form-label"> Téléphonne </label><br>
+                    <input type="text" name="phone" id="phone" class="form-control" value="<?=$partners['phone'] ?>">
                 </div><br>
                 <div class="lb_inp 5">
-                    <label for="social_reason"> Raison sociale </label><br>
-                    <input type="text" name="social_reason" id="social_reason" class="rounded w-100" value="<?=htmlspecialchars($partners['social_reason'] )?>">
+                    <label for="social_reason" class="form-label"> Raison sociale </label><br>
+                    <input type="text" name="social_reason" id="social_reason" class="form-control" value="<?=$partners['social_reason'] ?>">
                 </div><br>
                 <div class="lb_inp 6">
-                    <label for="logo"> Logo </label><br>
-                    <input type="file" name="logo" id="logo" class="rounded w-100" value="<?=$partners['logo'] ?>">
-                </div><br>
-                <div class="lb_inp 7">
-                    <label for="id_partnership"> Catégorie </label><br>
-                    <input type="text" name="id_partnership" id="id_partnership" class="rounded w-100"value="<?=htmlspecialchars($partners['id_partnership'] )?>">
+                    <label for="logo" class="form-label"> Logo </label><br>
+                    <input type="file" name="logo" id="logo" class="form-control" value="<?=$partners['logo'] ?>">
+                    <div class="lb_inp 7">
+                <label for="id_partnership" class="form-label">Catégorie</label><br>
+                <select name="id_partnership" id="id_partnership"class="form-select">>
+                <?php foreach ($partnerships as $partnership): ?>
+                    <option value="<?= $partnership['id_partnership']?>" ><?= $partnership['partnership_user'] ?></option>
+                <?php endforeach ?>
+            </select>
                 </div><br>
                 <div class="d-grid gap-2 col-5 mx-auto">
                 <input class="btn btn-info text-white" type="submit" value="Modifier">

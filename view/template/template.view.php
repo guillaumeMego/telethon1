@@ -28,11 +28,10 @@
             <h1 class="display-6">Compteur de don</h1>
 
 
-            <img src="./../public/asset/img/compteur.png" alt="" height="60">
-
-            
-
-
+            <!-- <img src="./../public/asset/img/compteur.png" alt="" height="60"> -->
+            <div class="bg-success">
+                <?php  print_r($compteur['SUM(collect_money)'])  ?>
+            </div>
 
         </div>
         <nav class="navbar navbar-expand-sm bg-info">

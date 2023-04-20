@@ -29,7 +29,7 @@ function partners_fetchAlllist(PDO $pdo){
  * @return void
  */
 function partners_fetchById(PDO $pdo, int $id_partners){
-    $sql = 'SELECT * FROM partners WHERE partners.id_partners = ?';
+    $sql = 'SELECT * FROM partners WHERE partners.id_partner = ?';
     $q = $pdo->prepare($sql);
     $q->execute([$id_partners]);
     return $q->fetch(PDO::FETCH_ASSOC);

@@ -6,22 +6,22 @@ ob_start(); ?>
 
 <div class="container h-100">
     <div class="row col-md-10 h-100 mx-auto ">
-        <p class="col-md-10 fst-italic fw-bold mb-5 pb-5">Ajouter un stand</p>
+        <p class="col-md-10 fst-italic fw-bold">Ajouter un stand</p>
 
         
-        <form action="index.php?controller=stands&action=create" method="post">
+        <form action="index.php?controller=stands&action=create" method="post" class="form-control border-0">
            
                 <div class="lb_inp 1">
-                    <label for="name"> Nom </label><br>
-                    <input type="text" name="name" id="name" class="rounded w-100">
+                    <label for="name" class="form-label"> Nom </label><br>
+                    <input type="text" name="name" id="name" class="form-control">
                 </div><br>
                 <div class="lb_inp 2">
-                    <label for="place"> Lieu </label><br>
-                    <input type="text" name="place" id="place" class="rounded w-100">
+                    <label for="place" class="form-label"> Lieu </label><br>
+                    <input type="text" name="place" id="place" class="form-control">
                 </div><br>
                 <div class="lb_inp 3">
-                    <label for="various"> Divers </label><br>
-                    <input type="text" name="various" id="various" class="rounded w-100">
+                    <label for="various" class="form-label"> Divers </label><br>
+                    <input type="text" name="various" id="various" class="form-control">
                 </div><br>
 
                 <div class="d-grid gap-2 col-5 mx-auto">

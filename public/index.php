@@ -1,6 +1,7 @@
 <?php
 session_start();
 require  'inc/config.php';
+require_once ROOT . '/model/compteur.model.php';
 require_once ROOT . '/tools/tools.php';
 
 
@@ -11,6 +12,7 @@ require_once ROOT . '/tools/tools.php';
             case 'stands':
             case 'collects':
             case 'partners':
+            case 'template':
                 $controller = $_GET['controller'];
                 break;
             default:
@@ -24,4 +26,6 @@ require_once ROOT . '/tools/tools.php';
             $controller = 'profil';
         }
     
+    $compteur = compteur_sum($pdo);
+
 require_once ROOT . '/controller/' . $controller . '/index.php';

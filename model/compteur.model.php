@@ -11,5 +11,5 @@ require __DIR__ . '/pdo.php';
 function compteur_sum(PDO $pdo){
     $sql = 'SELECT SUM(collect_money) FROM collects';
     $q = $pdo->query($sql);
-    return $q->fetchAll(PDO::FETCH_ASSOC);
+    return $q->fetch(PDO::FETCH_ASSOC);
 }

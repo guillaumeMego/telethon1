@@ -1,9 +1,8 @@
 <?php 
 
-require_once ROOT . '/model/compteur.model.php';
 
 
-$compteur = compteur_sum($pdo);
+
 
 
 

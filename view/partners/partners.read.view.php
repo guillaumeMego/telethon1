@@ -7,12 +7,10 @@ ob_start(); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-        <h3
-                style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
-                Gestion des partenaires</h3>
+            <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">Gestion des partenaires</h3>
                 <div class="d-grid gap-2 col-2 ">
-                        <a href="index.php?controller=partners&action=create" class="btn btn-info my-3 text-white">Ajouter</a>
-            </div>
+                    <a href="index.php?controller=partners&action=create" class="btn btn-info my-3 text-white">Ajouter</a>
+                </div>
             <table class="table table-striped">
                 <tbody>
                     <thead>
@@ -49,16 +47,15 @@ ob_start(); ?>
                                 <?= htmlspecialchars($partner['partnership_user']) ?>
                             </td>
                             <td>
-                                <a href="index.php?controller=partners&action=update&id<?= $partner['id_partner'] ?>"
-                                    class="mx-5"><i class="bi bi-pencil text-info"></i></a>
-                                <a href="index.php?controller=partners&action=delete&id<?= $partner['id_partner'] ?>"
-                                    class="mx-3"><i class="bi bi-trash text-info"></i></a>
+                                <a href="index.php?controller=partners&action=update&id=<?= $partner['id_partner'] ?>"><i class="bi bi-pencil text-info"></i></a>
+                                <a href="index.php?controller=partners&action=delete&id=<?= $partner['id_partner'] ?>"><i class="bi bi-trash text-info"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
         </div>
+        
     </div>
 </div>
 
