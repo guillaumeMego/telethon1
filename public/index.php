@@ -19,8 +19,9 @@ require_once ROOT . '/tools/tools.php';
     } else {
         $controller = 'collects';
     }
- if(!isset($_SESSION['profil']))
-    {
-        $controller = 'profil';
-    }
+    if(!isset($_SESSION['profil']))
+        {
+            $controller = 'profil';
+        }
+    
 require_once ROOT . '/controller/' . $controller . '/index.php';

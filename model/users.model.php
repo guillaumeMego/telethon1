@@ -14,6 +14,21 @@ function users_fetchAlllist(PDO $pdo){
     return $q->fetchAll(PDO::FETCH_ASSOC);
 }
 
+/**
+ * verifie si l'utilisateur existe
+ *
+ * @param PDO $pdo
+ * @param string $mail
+ * @return void
+ */
+function check_email_exists(PDO $pdo, string $mail) {
+    $sql = 'SELECT COUNT(*) as count FROM users WHERE mail = :mail';
+    $q = $pdo->prepare($sql);
+    $q->execute(['mail' => $mail]);
+    $result = $q->fetch(PDO::FETCH_ASSOC);
+    return $result['count'] > 0;
+}
+
 
 /**
  * trouve un utilisateur avec son id
@@ -108,23 +123,61 @@ function users_update(PDO $pdo, array $data, int $id_user){
 }
 
 
-function users_update_name(PDO $pdo, string $name){
-    $sql = 'INSERT INTO `users` (`name`, `update_at`)
-    VALUES(:name, current_timestamp())';
+function users_update_name(PDO $pdo, string $name, string $id_user){
+    $sql = 'UPDATE users SET `name` = :name, `update_at` = current_timestamp() WHERE id_user = :id_user';
     $q = $pdo->prepare($sql);
     $q->bindValue(':name', $name);
+    $q->bindValue(':id_user', $id_user);
     return $q->execute();
 }
 
-function users_update_first_name(PDO $pdo, string $first_name){
-    $sql = 'INSERT INTO `users` (`first_name`, `update_at`)
-    VALUES(:first_name, current_timestamp())';
+function users_update_first_name(PDO $pdo, string $first_name, string $id_user){
+    $sql = 'UPDATE users SET `first_name` = :first_name, `update_at` = current_timestamp() WHERE id_user = :id_user';
     $q = $pdo->prepare($sql);
     $q->bindValue(':first_name', $first_name);
+    $q->bindValue(':id_user', $id_user);
     return $q->execute();
 }
 
+function users_update_mail(PDO $pdo, string $mail, string $id_user){
+    $sql = 'UPDATE users SET `mail` = :mail, `update_at` = current_timestamp() WHERE id_user = :id_user';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':mail', $mail);
+    $q->bindValue(':id_user', $id_user);
+    return $q->execute();
+}
 
+function users_update_password(PDO $pdo, string $password, string $id_user){
+    $sql = 'UPDATE users SET `password` = :password, `update_at` = current_timestamp() WHERE id_user = :id_user';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':password', $password);
+    $q->bindValue(':id_user', $id_user);
+    return $q->execute();
+}
+
+function users_update_is_admin(PDO $pdo, string $is_admin, string $id_user){
+    $sql = 'UPDATE users SET `is_admin` = :is_admin, `update_at` = current_timestamp() WHERE id_user = :id_user';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':is_admin', $is_admin);
+    $q->bindValue(':id_user', $id_user);
+    return $q->execute();
+}
+
+function users_update_various(PDO $pdo, string $various, string $id_user){
+    $sql = 'UPDATE users SET `various` = :various, `update_at` = current_timestamp() WHERE id_user = :id_user';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':various', $various);
+    $q->bindValue(':id_user', $id_user);
+    return $q->execute();
+}
+
+function users_update_picture(PDO $pdo, string $picture, string $id_user){
+    $sql = 'UPDATE users SET `picture` = :picture, `update_at` = current_timestamp() WHERE id_user = :id_user';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':picture', $picture);
+    $q->bindValue(':id_user', $id_user);
+    return $q->execute();
+}
 
 /**
  * supprime un utilisateur avec l'id

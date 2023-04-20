@@ -14,8 +14,29 @@
     <title>La Couronne Téléthon 2023</title>
 </head>
 
-<body class="vh-100 d-flex align-contents-center align-items-center">
-    
+<body class="vh-100 d-flex flex-column">
+
+    <header class="mt-3">
+        <div class="container">
+            <div class="haut p-4 row">
+                <div class="d-flex justify-content-center col-12 col-md-4 order-2 order-md-1">
+                    <a href="index.php">
+                        <img src="./../public/asset/img/logo-flunchy-fixed.png" alt="" height="60">    
+                        <!-- <img src="public/asset/img/logo-flunchy-fixed.png" alt="" height="60"> -->
+                    </a>
+                </div>
+                <div class="col-12 col-md-4 order-1 order-md-2 text-center">
+                    <h1 class="display-6 fw-bolder">Compteur de don</h1>
+                </div>
+                <div class="d-flex justify-content-center col-12 col-md-4 order-3 order-md-3 d-none d-md-block">
+                    <img src="./../public/asset/img/compteur.png" alt="" height="60">
+                    <!-- <img src="public/asset/img/compteur.png" alt="" height="60"> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow-1 p-4">
 
 <?= $content ?>
 

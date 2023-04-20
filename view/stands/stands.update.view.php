@@ -25,7 +25,7 @@ ob_start(); ?>
                 </div><br>
 
                 <div class="d-grid gap-2 col-5 mx-auto">
-        <input class="btn btn-info" type="submit" value="Modifier">
+                <input class="btn btn-info text-white" type="submit" value="Modifier">
             </div>
         </form>
     </div>

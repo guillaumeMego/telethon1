@@ -8,12 +8,19 @@ require __DIR__ . '/pdo.php';
  * @param PDO $pdo
  * @return void
  */
+function stands_fetchAlllistinit(PDO $pdo){
+    $sql = 'SELECT * FROM stands';
+    $q = $pdo->query($sql);
+    return $q->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function stands_fetchAlllist(PDO $pdo){
     $sql = 'SELECT * FROM stands';
     $q = $pdo->query($sql);
     return $q->fetchAll(PDO::FETCH_ASSOC);
 }
 
+', DATE_FORMAT(date_collect, "%d/%m/%Y") AS date_collect ';
 
 /**
  * trouve un stand avec son id

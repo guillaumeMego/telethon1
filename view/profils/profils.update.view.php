@@ -21,7 +21,7 @@ ob_start(); ?>
                 </div><br>
                 <div class="lb_inp 3">
                     <label for="mail" class="form-label"> Mail </label><br>
-                    <input type="mail" name="mail" id="mail" class="form-control" value="<?=$_SESSION['profil']['mail']?>">
+                    <input type="mail" name="mail" id="mail" class="form-control">
                 </div><br>
                 <div class="lb_inp 4">
                     <label for="password" class="form-label"> Mot de passe </label><br>

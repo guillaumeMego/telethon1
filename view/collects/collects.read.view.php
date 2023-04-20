@@ -25,8 +25,8 @@ ob_start(); ?>
                     </thead>
                         <?php foreach ($collects as $collect): ?>
                             <tr class="text-center">
-                            <td>
-                                <?= htmlspecialchars($collect['collect_money']) ?>
+                            <td class="text-end pe-5">
+                                <?= htmlspecialchars($collect['collect_money']) ?> €
                             </td>
                             <td>
                                 <?= htmlspecialchars($collect['date_collect']) ?>

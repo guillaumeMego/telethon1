@@ -19,7 +19,7 @@ ob_start(); ?>
                 <thead class="text-center">
                         <th>Nom</th>
                         <th>Lieu</th>
-                        <th>Date</th>
+                        <th>Divers</th>
                     </thead>
                    
                         <?php foreach ($stands as $stand): ?>
@@ -30,8 +30,8 @@ ob_start(); ?>
                             <td>
                                 <?= htmlspecialchars($stand['place']) ?>
                             </td>
-                            <td>
-                                <?= htmlspecialchars($stand['update_at']) ?>
+                            <td >
+                                <?= htmlspecialchars($stand['various']) ?>
                             </td>
                             <td>
                                 <a href="index.php?controller=stands&action=update&id=<?= $stand['id_stand'] ?>"class="me-2"><i class="bi bi-pencil text-info"></i></a>

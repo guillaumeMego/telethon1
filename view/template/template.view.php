@@ -26,7 +26,14 @@
                 <img src="./../public/asset/img/logo-flunchy-fixed.png" alt="" height="60">
             </a>
             <h1 class="display-6">Compteur de don</h1>
+
+
             <img src="./../public/asset/img/compteur.png" alt="" height="60">
+
+            
+
+
+
         </div>
         <nav class="navbar navbar-expand-sm bg-info">
             <div class="container-fluid">

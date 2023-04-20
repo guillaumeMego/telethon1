@@ -21,6 +21,8 @@ ob_start(); ?>
                         <th>mail</th>
                         <th>Téléphonne</th>
                         <th>Raison sociale</th>
+                        <th>Logo</th>
+                        <th>Catégorie</th>
                         <th>Actions</th>
                     </thead>
                         <?php foreach ($partners as $partner): ?>
@@ -39,6 +41,12 @@ ob_start(); ?>
                             </td>
                             <td>
                                 <?= htmlspecialchars($partner['social_reason']) ?>
+                            </td>
+                            <td>
+                                <?= $partner['logo'] ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($partner['partnership_user']) ?>
                             </td>
                             <td>
                                 <a href="index.php?controller=partners&action=update&id<?= $partner['id_partner'] ?>"

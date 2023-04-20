@@ -15,7 +15,7 @@ function collects_fetchAlllist(PDO $pdo){
 }
 
 function collects_fetchAlllistTest(PDO $pdo){
-    $sql = 'SELECT collects.*, stands.name FROM collects INNER JOIN stands ON collects.id_stand = stands.id_stand';
+    $sql = 'SELECT collects.*, stands.name, DATE_FORMAT(date_collect, "%d/%m/%Y") AS date_collect FROM collects INNER JOIN stands ON collects.id_stand = stands.id_stand';
     $q = $pdo->query($sql);
     return $q->fetchAll(PDO::FETCH_ASSOC);
 }

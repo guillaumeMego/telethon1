@@ -31,9 +31,20 @@ ob_start(); ?>
                     <label for="social_reason"> Raison sociale </label><br>
                     <input type="text" name="social_reason" id="social_reason" class="rounded w-100">
                 </div><br>
-
+                <div class="lb_inp 6">
+                    <label for="logo"> Logo </label><br>
+                    <input type="file" name="logo" id="logo" class="rounded w-100">
+                </div><br>
+                <div class="lb_inp 7">
+                <label for="id_partnership">Catégorie</label><br>
+                <select name="id_partnership" id="id_partnership"class="form-select">>
+                <?php foreach ($partners as $partner): ?>
+                    <option value="<?= $partner['id_partnership']?>" ><?= $partner['partnership_user'] ?></option>
+                <?php endforeach ?>
+            </select>
+                </div><br>
                 <div class="d-grid gap-2 col-5 mx-auto">
-                <input class="btn btn-info" type="submit" value="Ajouter">
+                <input class="btn btn-info text-white" type="submit" value="Ajouter">
             </div>
         </form>
     </div>
