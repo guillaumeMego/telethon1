@@ -1,0 +1,58 @@
+<?php
+
+$title = "Afficher un partenaire";
+
+ob_start(); ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3
+                style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px; margin-left: 28px;margin-bottom: 109px;">
+                Gestion des partenaires</h3>
+                <div class="d-grid gap-2 col-2 mx-auto">
+                        <a href="index.php?controller=partners&action=create" class="btn btn-info">Ajouter</a>
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                    <thead>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>mail</th>
+                        <th>Téléphonne</th>
+                        <th>Raison sociale</th>
+                    </thead>
+                    <tr class="text-center">
+                        <?php foreach ($partners as $partner): ?>
+                            <td>
+                                <?= htmlspecialchars($partner['responsible_name']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($partner['responsible_first_name']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($partner['mail']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($partner['phone']) ?>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($partner['social_reason']) ?>
+                            </td>
+                            <td>
+                                <a href="index.php?controller=partners&action=update&id<?= $partner['id_partner'] ?>"
+                                    class="mx-5"><i class="bi bi-pencil text-info"></i></a>
+                                <a href="index.php?controller=partners&action=delete&id<?= $partner['id_partner'] ?>"
+                                    class="mx-3"><i class="bi bi-trash text-info"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<?php
+$content = ob_get_clean();
+require ROOT . '/view/template/template.view.php';
