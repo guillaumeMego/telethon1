@@ -36,9 +36,9 @@
                 <div class="col-12 col-md-4 order-1 order-md-2 text-center">
                     <h1 class="display-6">Compteur de don</h1>
                 </div>
-                <!-- <div class="d-flex justify-content-center col-12 col-md-4 order-3 order-md-3"> -->
+                <div class="d-flex justify-content-center col-12 col-md-4 order-3 order-md-3">
                     <img src="./../public/asset/img/compteur.png" alt="" height="60">
-                    <img src="public/asset/img/compteur.png" alt="" height="60">
+                    <!-- <img src="public/asset/img/compteur.png" alt="" height="60"> -->
                 </div>
             </div>
         </div>
