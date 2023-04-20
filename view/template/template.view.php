@@ -55,7 +55,7 @@
                                 <?= $_SESSION['profil']['name'] ?>
                             </a>
                             <ul class="dropdown-menu bg-info dropdown-menu-end">
-                                <li><a class="dropdown-item text-white" href="#">Profil</a></li>
+                                <li><a class="dropdown-item text-white" href="index.php?controller=profil&action=update">Profil</a></li>
                                 <li><a class="dropdown-item text-white" href="index.php?controller=profil&action=logout">Se déconnecter</a></li>
                             </ul>
                         </li>

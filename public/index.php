@@ -10,6 +10,7 @@ require_once ROOT . '/tools/tools.php';
             case 'profil':
             case 'stands':
             case 'collects':
+            case 'partners':
                 $controller = $_GET['controller'];
                 break;
             default:

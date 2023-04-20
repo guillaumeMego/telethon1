@@ -7,11 +7,11 @@ ob_start(); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3
-                style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px; margin-left: 28px;margin-bottom: 109px;">
+        <h3
+                style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
                 Gestion des partenaires</h3>
-                <div class="d-grid gap-2 col-2 mx-auto">
-                        <a href="index.php?controller=partners&action=create" class="btn btn-info">Ajouter</a>
+                <div class="d-grid gap-2 col-2 ">
+                        <a href="index.php?controller=partners&action=create" class="btn btn-info my-3 text-white">Ajouter</a>
             </div>
             <table class="table table-striped">
                 <tbody>
@@ -21,9 +21,10 @@ ob_start(); ?>
                         <th>mail</th>
                         <th>Téléphonne</th>
                         <th>Raison sociale</th>
+                        <th>Actions</th>
                     </thead>
-                    <tr class="text-center">
                         <?php foreach ($partners as $partner): ?>
+                            <tr class="text-center">
                             <td>
                                 <?= htmlspecialchars($partner['responsible_name']) ?>
                             </td>

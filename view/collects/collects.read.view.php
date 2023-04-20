@@ -32,7 +32,7 @@ ob_start(); ?>
                                 <?= htmlspecialchars($collect['date_collect']) ?>
                             </td>
                             <td>
-                                <?= htmlspecialchars($collect['id_stand']) ?>
+                                <?= htmlspecialchars($collect['name']) ?>
                             </td>
                             <td>
                                 <a href="index.php?controller=collects&action=update&id=<?= $collect['id_collect'] ?>"><i class="bi bi-pencil text-info"></i></a>

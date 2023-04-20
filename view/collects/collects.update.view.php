@@ -17,18 +17,21 @@ ob_start(); ?>
                 </div><br>
                 <div class="lb_inp 1">
                     <label for="date_collect"> date </label><br>
-                    <input type="date" name="date_collect" id="date_collect" class="rounded w-100"value="<?=$collect['date_collect'] ?>">
+                    <?php $date_formattee = date('Y-m-d', strtotime($collect['date_collect'])); ?>
+                    <input type="date" name="date_collect" id="date_collect" class="rounded w-100"value="<?=$date_formattee ?>">
                 </div><br>
                 <label for="id_stand">Stand</label><br>
                 <select name="id_stand" id="id_stand">
                 <?php foreach ($stands as $stand): ?>
-                    <option value="<?= $stand['id_stand']?>" ><?= $stand['name'] ?></option><br>
+                    <?php $selected = ($stand['id_stand'] == $standId['id_stand']) ? 'selected' : ''; ?>
+                    <option value="<?= $stand['id_stand']?>" <?= $selected ?> ><?= $stand['name'] ?></option><br>
                 <?php endforeach ?>
             </select>
             <label for="id_partner">Partenaires</label><br>
                 <select name="id_partner" id="id_partner">
                 <?php foreach ($partners as $partner): ?>
-                    <option value="<?= $partner['id_partner']?>" ><?= $partner['responsible_name'] ?></option>
+                    <?php $selectedOne = ($partner['id_partner'] == $partnerId['id_partner']) ? 'selected' : ''; ?>
+                    <option value="<?= $partner['id_partner']?>" <?= $selectedOne ?> ><?= $partner['responsible_name'] ?></option>
                 <?php endforeach ?>
             </select>
 

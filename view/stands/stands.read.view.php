@@ -21,8 +21,9 @@ ob_start(); ?>
                         <th>Lieu</th>
                         <th>Date</th>
                     </thead>
-                    <tr class="text-center">
+                   
                         <?php foreach ($stands as $stand): ?>
+                            <tr class="text-center">
                             <td>
                                 <?= htmlspecialchars($stand['name']) ?>
                             </td>

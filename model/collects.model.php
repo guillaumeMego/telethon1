@@ -14,6 +14,25 @@ function collects_fetchAlllist(PDO $pdo){
     return $q->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function collects_fetchAlllistTest(PDO $pdo){
+    $sql = 'SELECT collects.*, stands.name FROM collects INNER JOIN stands ON collects.id_stand = stands.id_stand';
+    $q = $pdo->query($sql);
+    return $q->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * liste  le nom du stand associe a la collect
+ *
+ * @param PDO $pdo
+ * @return void
+ */
+function collects_namestandlist(PDO $pdo){
+    $sql = 'SELECT name FROM stands
+        INNER JOIN collects on collects.id_stand = stands.id_stand 
+        IN (SELECT collects.id_stand FROM collects)';
+    $q = $pdo->query($sql);
+    return $q->fetchAll(PDO::FETCH_ASSOC);
+}
 
 /**
  * retourne le nom du stand associe a la collect
@@ -24,12 +43,15 @@ function collects_fetchAlllist(PDO $pdo){
  */
 function collects_namestand(PDO $pdo, int $id_stand){
     $sql = 'SELECT name FROM stands
-    INNER JOIN collects on stands.id_stand = collects.id_stand WHERE id_stand = ?';
+    INNER JOIN collects on collects.id_stand = stands.id_stand 
+    IN (SELECT collects.id_stand FROM collects WHERE collects.id_stand = ' . $id_stand . ')';
     $q = $pdo->prepare($sql);
     $q->execute([$id_stand]);
     return $q->fetch(PDO::FETCH_ASSOC);
 }
 
+'SELECT name FROM stands
+    INNER JOIN collects on stands.id_stand = collects.id_stand WHERE id_stand = ?';
 
 /**
  * trouve une collecte avec son id
@@ -82,7 +104,9 @@ function collects_update(PDO $pdo, array $data, int $id_collect){
         $sql .= $key . ' = \'' . $value . '\', ';
     }
     $sql = substr($sql, 0, -2);
+    //$sql .= " 'update_at' = current_timestamp()";
     $sql .=' WHERE id_collect = ' . $id_collect;
+    var_dump($sql);
     $q = $pdo->prepare($sql);
     return $q->execute();
 }
@@ -96,7 +120,7 @@ function collects_update(PDO $pdo, array $data, int $id_collect){
  * @return void
  */
 function collects_delete(PDO $pdo, int $id_collect){
-    $sql = 'DELETE FROM collects WHERE id = ?';
+    $sql = 'DELETE FROM collects WHERE id_collect = ?';
     $q = $pdo->prepare($sql);
     return $q->execute([$id_collect]);
 }

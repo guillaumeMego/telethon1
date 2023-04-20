@@ -1,10 +1,12 @@
-<?php 
+<?php
+
 
 if (isset($_GET['action'])){
     switch ($_GET['action']) {
-        case 'logout':
-        case 'auth':
+        case 'read':
+        case 'create':
         case 'update':
+        case 'delete':
             $action = $_GET['action'];
             break;
         default:
@@ -12,8 +14,9 @@ if (isset($_GET['action'])){
     }
 }
 else {
-    $action = 'auth';
+    $action = 'read';
 }
 
-require_once __DIR__ . '/' . $action . '.profil.controller.php';
+require_once __DIR__ . '/' . $action . '.partners.controller.php';
+
 

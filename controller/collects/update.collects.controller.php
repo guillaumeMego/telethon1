@@ -7,16 +7,18 @@ require_once ROOT . '/model/partners.model.php';
 $collect = collects_fetchById($pdo , $_GET['id']);
 $stands = stands_fetchAlllist($pdo);
 $partners = partners_fetchAlllist($pdo);
+$standId = stands_fetchById($pdo, $collect['id_stand']);
+$partnerId = stands_fetchById($pdo, $collect['id_stand']);
 
 
-if(isset($_POST['collect_money'], $_POST['date_collect'], $_POST['various'])){
-    if(!empty($_POST['collect_money']) && ($_POST['place']) && !empty($_POST['date_collect']) && !empty($_POST['various'])){
+if(isset($_POST['collect_money'], $_POST['date_collect'], $_POST['id_partner'], $_POST['id_stand'])){
+    if(!empty($_POST['collect_money']) && ($_POST['id_partner']) && !empty($_POST['date_collect']) && !empty($_POST['id_stand'])){
         
         $data = [
             'collect_money' => htmlspecialchars($_POST['collect_money']),
-            'date_collect' => htmlspecialchars($_POST['date_collect']),
+            'date_collect' => $_POST['date_collect'],
             'id_partner' => htmlspecialchars($_POST['id_partner']),
-            'id_stand' => htmlspecialchars($_POST['id_partner'])
+            'id_stand' => htmlspecialchars($_POST['id_stand'])
             
         ];
         if(collects_update($pdo, $data, $_GET['id'])){

@@ -108,6 +108,24 @@ function users_update(PDO $pdo, array $data, int $id_user){
 }
 
 
+function users_update_name(PDO $pdo, string $name){
+    $sql = 'INSERT INTO `users` (`name`, `update_at`)
+    VALUES(:name, current_timestamp())';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':name', $name);
+    return $q->execute();
+}
+
+function users_update_first_name(PDO $pdo, string $first_name){
+    $sql = 'INSERT INTO `users` (`first_name`, `update_at`)
+    VALUES(:first_name, current_timestamp())';
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':first_name', $first_name);
+    return $q->execute();
+}
+
+
+
 /**
  * supprime un utilisateur avec l'id
  *
