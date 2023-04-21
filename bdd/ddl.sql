@@ -51,7 +51,7 @@ CREATE TABLE partners(
 
 CREATE TABLE collects(
    id_collect INT NOT NULL AUTO_INCREMENT,
-   collect_money DECIMAL(6,2) NOT NULL,
+   collect_money DECIMAL(7,2) NOT NULL,
    date_collect DATETIME NOT NULL,
    create_at DATETIME NOT NULL,
    update_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

@@ -3,7 +3,8 @@
 $theme-colors: (
     'info': #038591,
     'danger':#FC6303,
-    'success':#8CD50A
+    'success':#8CD50A,
+    'compt': #d4be3e
 );
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

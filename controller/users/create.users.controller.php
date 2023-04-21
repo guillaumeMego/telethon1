@@ -17,20 +17,24 @@ if(isset($_POST['name'], $_POST['first_name'], $_POST['mail'], $_POST['password'
             $is_admin = '0';
         }
         $various = htmlspecialchars($_POST['various']);
-        $picture = htmlspecialchars($_POST['picture']);
-
-        if(users_add($pdo, $name, $first_name, $email, $password, (int)$is_admin, $various, $picture)) {
-            $_SESSION['msg'] = [
-                'css' => 'success',
-                'txt' => 'Utilisateur ajouté'
-            ];
-            
-        } else {
-            $_SESSION['msg'] = [
-                'css' => 'danger',
-                'txt' => 'Une erreur est survenue'
-            ];
+        $picture = $_FILES['picture'];
+        
+        if($picture = imageUpload($picture)){
+            if(users_add($pdo, $name, $first_name, $email, $password, (int)$is_admin, $various, $picture)) {
+                $_SESSION['msg'] = [
+                    'css' => 'success',
+                    'txt' => 'Utilisateur ajouté'
+                ];
+                
+            } else {
+                $_SESSION['msg'] = [
+                    'css' => 'danger',
+                    'txt' => 'Une erreur est survenue'
+                ];
+            }
         }
+        
+        
        
     }else{
         $_SESSION['msg'] = [

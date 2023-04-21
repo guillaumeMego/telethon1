@@ -29,8 +29,22 @@
 
 
             <!-- <img src="./../public/asset/img/compteur.png" alt="" height="60"> -->
-            <div class="bg-success">
-                <?php  print_r($compteur['SUM(collect_money)'])  ?>
+            <div class="" >
+                <div class="col" style="background-color: #EECB5E; font-size: 2rem; padding: 1rem; border-radius: 1.2rem">  
+                    <?php   $somme = $compteur['SUM(collect_money)']; ?>
+                    <?php $array_somme = str_split($somme); ?>
+                    <?php if (count($array_somme) < 8) {
+                        array_unshift($array_somme, '0');
+                    } ?>
+                    <?php for ($i=0; $i < 5; $i++) { 
+                        if ($array_somme[$i] == '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') {
+                            ?><div style="display: inline; background-color: white; margin-right: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 0.5rem;"><?php echo $array_somme[$i]; ?></div><?php
+                        }
+                        else{
+                            echo '0';
+                        }
+                    }; echo'€';?>
+                </div>  
             </div>
 
         </div>
@@ -42,8 +56,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="index.php?controller=collects">Collectes</a>
+                        <li class="nav-item ">
+                            <a class="nav-link active text-white" aria-current="page" href="index.php?controller=collects">Collectes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="index.php?controller=stands">Stands</a>
@@ -56,6 +70,9 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
+                        <li>
+                            <img src="<?= $_SESSION['profil']['picture'] ?>" alt="" height="40">
+                        </li>
                         <li class="nav-item btn-group">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?= $_SESSION['profil']['name'] ?>

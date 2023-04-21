@@ -9,15 +9,15 @@ ob_start(); ?>
         <div class="col-md-6">
             <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">Gestion des partenaires</h3>
                 <div class="d-grid gap-2 col-2 ">
-                    <a href="index.php?controller=partners&action=create" class="btn btn-info my-3 text-white">Ajouter</a>
+                    <a href="index.php?controller=partners&action=create" class="btn px-5 btn-sm btn-info my-3 text-white">Ajouter</a>
                 </div>
             <table class="table table-striped">
                 <tbody>
-                    <thead>
+                    <thead class="text-center">
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>mail</th>
-                        <th>Téléphonne</th>
+                        <th>Téléphone</th>
                         <th>Raison sociale</th>
                         <th>Logo</th>
                         <th>Catégorie</th>
@@ -47,7 +47,7 @@ ob_start(); ?>
                                 <?= htmlspecialchars($partner['partnership_user']) ?>
                             </td>
                             <td>
-                                <a href="index.php?controller=partners&action=update&id=<?= $partner['id_partner'] ?>"><i class="bi bi-pencil text-info"></i></a>
+                                <a href="index.php?controller=partners&action=update&id=<?= $partner['id_partner'] ?>"><i class="bi bi-pencil text-info"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="index.php?controller=partners&action=delete&id=<?= $partner['id_partner'] ?>"><i class="bi bi-trash text-info"></i></a>
                             </td>
                         </tr>

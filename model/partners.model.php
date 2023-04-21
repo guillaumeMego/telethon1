@@ -63,6 +63,20 @@ function partners_add(PDO $pdo, string $responsible_name, string $responsible_fi
     return $q->execute();
 }
 
+/**
+ * verifie si le mail existe deja
+ *
+ * @param PDO $pdo
+ * @param string $mail
+ * @return void
+ */
+function check_email_partners_exists(PDO $pdo, string $mail) {
+    $sql = 'SELECT COUNT(*) as count FROM partners WHERE mail = :mail';
+    $q = $pdo->prepare($sql);
+    $q->execute(['mail' => $mail]);
+    $result = $q->fetch(PDO::FETCH_ASSOC);
+    return $result['count'] > 0;
+}
 
 /**
  * met a jour un parteniare grace a son id

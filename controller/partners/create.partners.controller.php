@@ -12,7 +12,7 @@ if(isset($_POST['mail'], $_POST['id_partnership'])) {
         $mail = htmlspecialchars($_POST['mail']);
         $social_reason = htmlspecialchars($_POST['social_reason']);
         $phone = htmlspecialchars($_POST['phone']);
-        $logo = htmlspecialchars($_POST['logo']);
+        $logo = $_FILES['logo']['name'];
         $id_partnership = htmlspecialchars($_POST['id_partnership']);
 
         if(partners_add($pdo, $responsible_name, $responsible_first_name, $mail, $social_reason, $phone, $logo, $id_partnership)) {

@@ -6,7 +6,8 @@ ob_start(); ?>
 
 <div class="container h-100">
     <div class="row col-md-10 h-100 mx-auto ">
-        <p class="col-md-10 fst-italic fw-bold">Modifier un stand</p>
+    <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
+    Modifier un stand</h3>
 
         
         <form action="index.php?controller=stands&action=update&id=<?= $_GET['id'] ?>" method="post" class="form-control border-0">
@@ -25,7 +26,7 @@ ob_start(); ?>
                 </div><br>
 
                 <div class="d-grid gap-2 col-5 mx-auto">
-                <input class="btn btn-info text-white" type="submit" value="Modifier">
+                <input class="btn btn-sm btn-info text-white my-4" type="submit" value="Modifier">
             </div>
         </form>
     </div>

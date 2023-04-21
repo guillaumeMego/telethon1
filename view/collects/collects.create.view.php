@@ -6,14 +6,15 @@ ob_start(); ?>
 
 <div class="container h-100">
     <div class="row col-md-10 h-100 mx-auto ">
-        <p class="fst-italic fw-bold">Ajouter une collecte</p>
+    <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
+    Ajouter une collecte</h3>
 
         
         <form action="index.php?controller=collects&action=create" method="post" class="form-control border-0 m-0">
            
                 <div class="lb_inp 1">
                     <label for="collect_money" class="form-label"> Somme ajouté </label><br>
-                    <input type="number" name="collect_money" id="collect_money" class="form-control">
+                    <input type="decimal" name="collect_money" id="collect_money" class="form-control">
                 </div><br>
                 <div class="lb_inp 1">
                     <label for="date_collect" class="form-label"> date </label><br>
@@ -36,7 +37,7 @@ ob_start(); ?>
 
 
             <div class="d-grid gap-2 col-5 mx-auto mt-3">
-                <input class="btn btn-info text-white" type="submit" value="Ajouter">
+                <input class="btn btn-sm btn-info text-white my-4" type="submit" value="Ajouter">
             </div>
         </form>
     </div>

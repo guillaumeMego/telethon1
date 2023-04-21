@@ -70,13 +70,16 @@ if(isset($_POST['name'], $_POST['first_name'], $_POST['mail'], $_POST['password'
         }
     }
     if(!empty($_POST['picture'])){
-        $picture = htmlspecialchars($_POST['picture']);
+        $picture = $_FILES['picture'];
+        if($picture = imageUpload($picture)){
+
         if(users_update_picture($pdo, $picture, $_GET['id'])){
            $success = true;
             
         } else {
            $success = false;
         }
+    }
     }
     if($success){
         $_SESSION['msg'] = [
@@ -101,4 +104,3 @@ $users = users_fetchById($pdo, $_GET['id']);
 
 
 require_once ROOT . '/view/users/users.update.view.php';
-?>

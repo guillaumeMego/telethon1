@@ -85,10 +85,10 @@ function users_get_password(PDO $pdo, string $mail){
  * @param string $password
  * @param integer $is_admin
  * @param string $various
- * @param string $picture
+ * @param [type] $picture
  * @return void
  */
-function users_add(PDO $pdo, string $name, string $first_name, string $mail, string $password, int $is_admin, string $various, string $picture){
+function users_add(PDO $pdo, string $name, string $first_name, string $mail, string $password, int $is_admin, string $various, $picture){
     $sql = 'INSERT INTO `users` (`name`, `first_name`, `mail`, `password`, `is_admin`, `various`, `picture`, `create_at`, `update_at`)
     VALUES(:name, :first_name, :mail, :password, :is_admin, :various, :picture, current_timestamp(), current_timestamp())';
     $q = $pdo->prepare($sql);
@@ -171,7 +171,7 @@ function users_update_various(PDO $pdo, string $various, string $id_user){
     return $q->execute();
 }
 
-function users_update_picture(PDO $pdo, string $picture, string $id_user){
+function users_update_picture(PDO $pdo, $picture, $id_user){
     $sql = 'UPDATE users SET `picture` = :picture, `update_at` = current_timestamp() WHERE id_user = :id_user';
     $q = $pdo->prepare($sql);
     $q->bindValue(':picture', $picture);
@@ -200,23 +200,25 @@ function users_delete(PDO $pdo, int $id_user){
  * @return void
  */
 function imageUpload($image)
-    {
-        $tailleMax = 2097152;
-        $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-        if ($image['size'] <= $tailleMax) {
-            $extensionUpload = strtolower(substr(strrchr($image['name'], '.'), 1));
-            if (in_array($extensionUpload, $extensionsValides)) {
-                $chemin = "public/asset/img/article/" . $image['name'];
-                $resultat = move_uploaded_file($image['tmp_name'], $chemin);
-                if ($resultat) {
-                    return $chemin;
-                } else {
-                    return false;
-                }
+{
+    $tailleMax = 2097152;
+    $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+    if ($image['size'] <= $tailleMax) {
+        $extensionUpload = strtolower(substr(strrchr($image['name'], '.'), 1));
+        if (in_array($extensionUpload, $extensionsValides)) {
+            $chemin = "public/asset/img/users/" . $image['name'];
+            $resultat = move_uploaded_file($image['tmp_name'], $chemin);
+            if ($resultat) {
+                return $chemin;
             } else {
                 return false;
             }
         } else {
             return false;
         }
+    } else {
+        return false;
     }
+}
+
+/* '{ ["picture"]=> array(6) { ["name"]=> string(25) "babouche_a_vectoriser.png" ["full_path"]=> string(25) "babouche_a_vectoriser.png" ["type"]=> string(9) "image/png" ["tmp_name"]=> string(60) "/home/clients/5651b8c6daf1e874a0c30721767bd935/tmp/php66ktXE" ["error"]=> int(0) ["size"]=> int(42598) } }'; */

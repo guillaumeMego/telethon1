@@ -6,10 +6,11 @@ ob_start(); ?>
 
 <div class="container h-100">
     <div class="row col-md-10 h-100 mx-auto">
-        <p class="col-md-10 fst-italic fw-bold">Modifier un utilisateur</p>
+    <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
+    Modifier un utilisateur</h3>
 
         
-        <form action="index.php?controller=users&action=update&id=<?= $_GET['id'] ?>" method="post" class="form-control border-0">
+        <form action="index.php?controller=users&action=update&id=<?= $_GET['id'] ?>" method="post" class="form-control border-0" enctype="multipart/form-data">
            
                 <div class="lb_inp 1">
                     <label for="name" class="form-label"> Nom </label><br>
@@ -44,7 +45,7 @@ ob_start(); ?>
                     <input type="file" name="picture" id="picture" class="form-control" value="<?=$users['picture'] ?>">
                 </div><br>
                 <div class="d-grid gap-2 col-5 mx-auto">
-                <input class="btn btn-info text-white" type="submit" value="Modifier">
+                <input class="btn btn-sm btn-info text-white my-4" type="submit" value="Modifier">
             </div>
         </form>
     </div>

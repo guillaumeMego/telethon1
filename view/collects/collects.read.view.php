@@ -7,12 +7,11 @@ ob_start(); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3
-                style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
+            <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
                 Collectes</h3>
 
-                <div class="d-grid gap-2 col-2 ">
-                        <a href="index.php?controller=collects&action=create" class="btn btn-info my-3 text-white">Ajouter</a>
+            <div class="d-grid gap-2 col-2 ">
+                <a href="index.php?controller=collects&action=create" class="btn px-5 btn-sm btn-info my-3 text-white">Ajouter</a>
             </div>
 
             <table class="table table-striped">
@@ -23,8 +22,8 @@ ob_start(); ?>
                         <th>Stand</th>
                         <th>Actions</th>
                     </thead>
-                        <?php foreach ($collects as $collect): ?>
-                            <tr class="text-center">
+                    <?php foreach ($collects as $collect) : ?>
+                        <tr class="text-center">
                             <td class="text-end pe-5">
                                 <?= htmlspecialchars($collect['collect_money']) ?> €
                             </td>
@@ -35,7 +34,7 @@ ob_start(); ?>
                                 <?= htmlspecialchars($collect['name']) ?>
                             </td>
                             <td>
-                                <a href="index.php?controller=collects&action=update&id=<?= $collect['id_collect'] ?>"><i class="bi bi-pencil text-info"></i></a>
+                                <a href="index.php?controller=collects&action=update&id=<?= $collect['id_collect'] ?>"><i class="bi bi-pencil text-info"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect'] ?>"><i class="bi bi-trash text-info"></i></a>
                             </td>
                         </tr>

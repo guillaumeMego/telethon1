@@ -10,8 +10,9 @@ ob_start(); ?>
         <div class="col-md-6">
             <h3 style="font-family: PT Serif; font-weight: bold; font-style: italic; font-size: 22px;">
                 Gestion des utilisateur</h3>
-
-            <a href="index.php?controller=users&action=create" class="btn btn-info my-3 text-white">Ajouter</a>
+                <div class="d-grid gap-2 col-2 ">
+            <a href="index.php?controller=users&action=create" class="btn px-5 btn-sm btn-info my-3 text-white">Ajouter</a>
+                </div>
 
             <table class="table table-striped">
                 <thead class="text-center">
@@ -30,7 +31,7 @@ ob_start(); ?>
                             <td><?= htmlspecialchars($user['name']) ?></td>
                             <td><?= htmlspecialchars($user['is_admin']) ?></td>
                             <td>
-                                <a href="index.php?controller=users&action=update&id=<?= $user['id_user'] ?>" class="me-2"><i class="bi bi-pencil text-info"></i></a>
+                                <a href="index.php?controller=users&action=update&id=<?= $user['id_user'] ?>" class="me-2"><i class="bi bi-pencil text-info"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="index.php?controller=users&action=delete&id=<?= $user['id_user'] ?>"><i class="bi bi-trash text-info"></i></a>
                             </td>
                             <!-- <td>
